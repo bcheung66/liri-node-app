@@ -20,7 +20,7 @@ LIRI is a Lanaguage Interpreation and Recognition Interface application. It take
      
      * The album that the song is from
 
-   * If no song is provided then your program will default to "No song specified"
+    * If no song is provided then the program default to "The Sign" by Ace of Base.
    
    
 3. `node liri.js movie-this '<movie name here>'`
@@ -50,7 +50,7 @@ LIRI is a Lanaguage Interpreation and Recognition Interface application. It take
 
 ### BONUS
 
-* In addition to logging the data to your terminal/bash window, output the data to a .txt file called `log.txt`.
+* In addition to logging the data to the terminal/bash window, output the data to a .txt file called `log.txt`.
 
 
 

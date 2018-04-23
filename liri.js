@@ -16,7 +16,7 @@ var execCmd = function () {
         twitter.get('search/tweets', { q: 'bcheung2018' }, function (error, tweets, response) {
             if (error) {
                 console.log(error);
-                log.write(error);   
+                log.write(error);
             }
 
             tweets.statuses.forEach(status => {
@@ -51,8 +51,32 @@ var execCmd = function () {
             });
         }
         else {
-            console.log("No song specified!");
-            log.write("No song specified!" + "\r\n"); 
+            /* console.log("No song specified!");
+            log.write("No song specified!" + "\r\n"); */
+            console.log("\"The Sign\" by Ace of Base.");
+            log.write("\"The Sign\" by Ace of Base." + "\r\n");
+
+            var arg1 = "Ace of Base"
+            //console.log(process.argv[2] + "-" + arg);
+            spotify.search({ type: 'track', query: arg1, limit: 1 }, function (err, data) {
+                if (err) {
+                    return console.log('Error occurred: ' + err);
+                    return log.write('Error occurred: ' + err);
+                }
+                //console.log(data);
+                data.tracks.items.forEach(element => {
+                    console.log("Preview link: " + element.preview_url);
+                    log.write("Preview link: " + element.preview_url + "\r\n");
+                    console.log("Album: " + element.album.name);
+                    log.write("Album: " + element.album.name + "\r\n");
+                    element.artists.forEach(artist => {
+                        console.log("Artist(s): " + artist.name);
+                        log.write("Artist(s): " + artist.name + "\r\n");
+                    })
+                    console.log("Song: " + element.name);
+                    log.write("Song: " + element.name + "\r\n");
+                });
+            });
         }
     }
     else if (command === "movie-this") {
